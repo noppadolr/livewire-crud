@@ -21,6 +21,9 @@ class Countries extends Component
 
     public function OpenAddCountryModal()
     {
+        $this->continent = '';
+        $this->country_name='';
+        $this->capital_city='';
         $this->resetValidation();
         $this->dispatch('OpenAddCountryModal');
 

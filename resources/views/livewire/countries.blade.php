@@ -11,9 +11,18 @@
             </tr>
         </thead>
         <tbody>
-            <td >Continent X</td>
-            <td >Country x</td>
-            <td >Capital x</td>
+            @forelse ($countries as $country )
+            <tr>
+                <td >{{ $country->continent->continent_name }}</td>
+                <td >{{ $country->country_name  }}</td>
+                <td >{{ $country->capital_city  }}</td>
+
+            </tr>
+
+            @empty
+                <code>No Country found</code>
+            @endforelse
+
         </tbody>
 
         </thead>
