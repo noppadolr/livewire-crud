@@ -1,6 +1,6 @@
-<form>
-    <flux:modal name="project-modal" class="md:w-[32rem]">
-        <div class="space-y-6">
+
+    <flux:modal name="project-modal" class="md:w-[32rem]" @close="resetForm()" @cancel="resetForm()">
+        <form class="space-y-6" wire:submit="saveProject()">
             <div>
                 <flux:heading size="lg">Create Project</flux:heading>
                 <flux:text class="mt-2">Add a new project using the form below.</flux:text>
@@ -9,17 +9,17 @@
 
             {{-- project anme --}}
             <div class="form-group">
-                <flux:input label="Project Name" placeholder="Enter Project name" />
+                <flux:input wire:model="name" label="Project Name" placeholder="Enter Project name" />
             </div>
 
             {{-- Description --}}
             <div class="form-group">
-                <flux:textarea label="Description"  placeholder="Short Project Description" rows="3"/>
+                <flux:textarea wire:model="description" label="Description"  placeholder="Short Project Description" rows="3"/>
             </div>
 
             {{-- Deadline --}}
             <div class="form-group">
-                <flux:input label="Dead line" type="date"  />
+                <flux:input wire:model="deadline" label="Dead line" type="date"  />
             </div>
 
             {{-- Status --}}
@@ -35,7 +35,7 @@
 
             {{--project logo --}}
             <div class="form-group">
-                <flux:input label="Project Logo" type="file" accept="image/*" class="cursor-pointer" />
+                <flux:input wire:model="project_logo" label="Project Logo" type="file" accept="image/*" class="cursor-pointer" />
             </div>
 
 
@@ -50,6 +50,6 @@
                 <flux:button type="submit" variant="primary" color="indigo" class="cursor-pointer ms-2">Save Project</flux:button>
             </div>
 
-        </div>
+        </form>
     </flux:modal>
-</form>
+
